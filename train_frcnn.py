@@ -139,7 +139,7 @@ classifier = nn.classifier(shared_layers, roi_input, C.num_rois, nb_classes=len(
 from keras.utils.training_utils import multi_gpu_model
 
 model_rpn = Model(img_input, rpn[:2])
-model_rpn = multi_gpu_model(model_rpn, gpus=2)
+model_rpn = multi_gpu_model(model_rpn, gpus=1)
 model_classifier = Model([img_input, roi_input], classifier)
 
 # this is a model that holds both the RPN and the classifier, used to load/save weights for the models
